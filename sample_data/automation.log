@@ -1,0 +1,13 @@
+# Timestamp Severity Asset Code Message
+2026-06-21 08:00:00 INFO PLC-07 START Controller boot completed
+2026-06-21 08:14:03 ERROR PLC-07 E204 Motor overload on conveyor 3
+2026-06-21 08:16:19 WARN ROBOT-02 W105 Axis 2 temperature high at 78 C
+2026-06-21 08:20:27 ERROR PLC-07 E204 Motor overload on conveyor 4
+2026-06-21 09:03:12 INFO HMI-01 LOGIN Operator session started
+2026-06-21 09:11:44 ERROR VISION-04 E410 Camera timeout after 5000 ms
+2026-06-21 09:13:10 ERROR VISION-04 E410 Camera timeout after 5001 ms
+2026-06-21 09:26:55 WARN ROBOT-02 W105 Axis 4 temperature high at 81 C
+2026-06-21 10:02:14 CRITICAL PLC-07 E204 Motor overload on conveyor 3
+2026-06-21 10:20:17 INFO PLC-07 RESET Fault reset by operator
+2026-06-21 11:07:32 ERROR VISION-04 E410 Camera timeout after 5000 ms
+2026-06-21 11:21:08 WARN ROBOT-02 W105 Axis 2 temperature high at 79 C

@@ -1,31 +1,46 @@
-# automation-fault-analyzer
-Python Streamlit application for analyzing industrial automation logs, identifying recurring fault signatures, visualizing fault trends, and generating maintenance reports for PLC, robot, HMI, and SCADA systems.
+# Automation Log Fault Analyzer
+
+A Python application for parsing automation-system logs, grouping recurring faults, exploring reliability trends in an interactive dashboard, and exporting operational reports.
 
 ## Features
-- Log file parsing
-- Fault trend visualization
-- Recurring fault detection
-- Asset-level analytics
-- Severity filtering
-- Interactive dashboard
-- Report generation
 
-## Technologies
-- Python
-- Streamlit
-- Pandas
-- Plotly
+- Parses JSON Lines, CSV, and common plain-text log formats
+- Normalizes changing IDs, addresses, and numbers into stable fault signatures
+- Ranks recurring faults by frequency, affected assets, severity, and duration
+- Filters by date, severity, asset, and free text in a Streamlit dashboard
+- Exports JSON, CSV, and standalone HTML reports
+- Includes a command-line workflow and unit tests
 
-## Use Cases
-- PLC fault analysis
-- Robot diagnostics
-- HMI event monitoring
-- SCADA log review
-- Industrial maintenance reporting
+## Quick start
 
-## Future Enhancements
-- MTBF calculations
-- Downtime tracking
-- PDF report generation
-- Fleet health monitoring
-- Predictive maintenance analytics
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+The dashboard opens with `sample_data/automation.log`. Upload one or more files to analyze your own data.
+
+## Command line
+
+```powershell
+python -m log_analyzer sample_data/automation.log --output reports --threshold 2
+```
+
+This creates `events.csv`, `recurring_faults.csv`, `summary.json`, and `report.html` in the output directory.
+
+Supported text lines include:
+
+```text
+2026-06-21 08:14:03 ERROR PLC-07 E204 Motor overload on conveyor 3
+2026-06-21T08:15:11Z [WARN] asset=ROBOT-02 code=W105 Axis temperature high
+```
+
+CSV/JSON fields are matched from common aliases such as `timestamp`/`time`, `severity`/`level`, `asset`/`device`, `code`/`fault_code`, and `message`/`description`.
+
+## Test
+
+```powershell
+pytest
+```
